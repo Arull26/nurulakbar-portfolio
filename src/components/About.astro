@@ -1,0 +1,37 @@
+---
+// src/components/About.astro
+const aboutMe = "Saya seorang pribadi yang tekun, rajin, dan jujur. Saya siap bekerja di bawah tekanan dan dapat beradaptasi dengan lingkungan baru. Saya mampu bekerja secara tim maupun individu. Saya memiliki motivasi tinggi dalam bekerja, memiliki komunikasi yang baik dan cepat belajar hal-hal baru.";
+const principles = [
+    "Memiliki prinsip target dan cekatan di bidang produksi",
+    "Mengoperasikan barang dengan mesin atau secara manual",
+    "Teliti dalam bekerja"
+];
+---
+<section id="tentang" class="py-12 md:py-16 px-4 md:px-10">
+    <h2 class="text-4xl font-bold text-gray-900 mb-8 border-b-4 border-indigo-500 pb-2 inline-block">
+        Tentang Saya
+    </h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8"> 
+        
+        <div class="md:col-span-2 bg-white p-8 rounded-lg shadow-xl hover:shadow-2xl transition duration-300">
+            <p class="text-lg text-gray-700 leading-relaxed">
+                {aboutMe}
+            </p>
+        </div>
+        
+        <div class="md:col-span-1 bg-indigo-50 p-8 rounded-lg shadow-xl">
+            <h3 class="text-2xl font-semibold text-indigo-700 mb-4">
+                Fokus & Prinsip
+            </h3>
+            <ul class="space-y-3">
+                {principles.map(p => (
+                    <li class="flex items-start text-gray-800">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-500 mt-1 flex-shrink-0 mr-3" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" /></svg>
+                        <span>{p}</span>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    </div>
+</section>

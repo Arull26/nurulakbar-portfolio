@@ -1,0 +1,50 @@
+---
+// src/components/Education.astro
+// Data pendidikan
+const educations = [
+    {
+        period: "2022 - Sekarang",
+        institution: "Universitas Pelita Bangsa",
+        major: "Teknik Informatika",
+        description: "Saat ini sedang menempuh pendidikan tinggi di bidang Teknik Informatika. Fokus pembelajaran meliputi pemahaman mendalam tentang struktur data, algoritma, pengembangan perangkat lunak modern (terutama back-end dan database), serta implementasi solusi IT untuk masalah industri.",
+        current: true,
+    },
+    {
+        period: "2019 - 2022",
+        institution: "SMA Minhajul Haq",
+        major: "Jurusan Agama dan Bahasa",
+        description: "Jurusan ini mempersiapkan siswa untuk memiliki kemampuan dalam memahami dan mengelola berbagai aspek keilmuan di bidang agama dan bahasa. Fokus pembelajaran mencakup penguasaan ilmu keagamaan, keterampilan berbahasa (Indonesia, Inggris, dan Arab), serta kemampuan komunikasi dan penalaran.",
+        current: false,
+    }
+];
+---
+<section id="pendidikan" class="py-12 md:py-16 px-4 md:px-10">
+    <h2 class="text-4xl font-bold text-gray-900 mb-8 border-b-4 border-indigo-500 pb-2 inline-block">
+        Pendidikan
+    </h2>
+    
+    <div class="space-y-8">
+        {educations.map(edu => (
+            <div class={`bg-white p-8 rounded-lg shadow-xl border-t-4 ${edu.current ? 'border-green-600' : 'border-indigo-500'}`}>
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
+                    <div>
+                        <h3 class={`text-3xl font-bold ${edu.current ? 'text-green-700' : 'text-indigo-700'}`}>
+                            {edu.major}
+                        </h3>
+                        <p class="text-xl text-gray-800 font-semibold">
+                            {edu.institution}
+                        </p>
+                    </div>
+                    <span class={`text-lg font-medium ${edu.current ? 'text-green-700 bg-green-100' : 'text-gray-500 bg-gray-100'} px-3 py-1 rounded-full mt-2 sm:mt-0 flex-shrink-0`}>
+                        {edu.period}
+                        {edu.current && <span class="ml-2 text-xs font-bold text-green-800 bg-green-300 px-2 py-0.5 rounded-full">Saat Ini</span>}
+                    </span>
+                </div>
+        
+                <p class="text-lg text-gray-700 leading-relaxed mt-4 border-l-4 border-gray-200 pl-4">
+                    {edu.description}
+                </p>
+            </div>
+        ))}
+    </div>
+</section>

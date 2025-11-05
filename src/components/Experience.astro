@@ -1,0 +1,88 @@
+---
+import TimelineItem from './TimelineItem.astro';
+
+// --- DATA DARI CV ---
+
+const industrialExperience = [
+  {
+    date: "Juli 2024 - Juni 2025",
+    title: "Operator Produksi",
+    company: "PT Saneng Industrial",
+    description:
+      "Bertanggung jawab dalam proses produksi, termasuk loading part, air blow, pengecekan kualitas (check man), serta proses painting untuk memastikan hasil sesuai standar perusahaan.",
+    certificateLink: "/paklaring-saneng.pdf", 
+  },
+  {
+    date: "Februari 2024 - April 2024",
+    title: "Crew",
+    company: "PT Pesta Pora Abadi",
+    description:
+      "Bertanggung jawab dalam menjalankan tugas operasional harian sesuai jobdesk perusahaan serta mendukung kelancaran proses kerja di lapangan.",
+    certificateLink: "/paklaring-pora.pdf", 
+  },
+];
+
+const itExperience = [
+  {
+    date: "Juni 2025 - Agustus 2025",
+    title: "Web Development",
+    company: "Lembah Pangaduan",
+    description:
+      "Mengembangkan sistem informasi pariwisata berbasis web menggunakan CodeIgniter 4, MySQL, Tailwind CSS, dan JavaScript. Membangun fitur booking online, penyewaan perlengkapan, promosi digital, serta dashboard admin untuk pengelolaan data dan laporan transaksi secara real-time.",
+    link: "https://github.com/DzakiAbiyyu/kp.git", 
+  },
+];
+---
+
+<section id="pengalaman" class="py-12 md:py-16 px-4 md:px-10">
+  <h2 class="text-4xl font-bold text-gray-900 mb-10 border-b-4 border-indigo-500 pb-2 inline-block">
+    Pengalaman Kerja & Proyek
+  </h2>
+
+  <div class="mb-12">
+    <h3 class="text-3xl font-semibold text-indigo-700 mb-6 flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h-2m2 0h-5m-9 0H7m3 0h4m-4 0h.01M6 15h2m-2 2h2m-2-4h2m-2-2h2m-2-2h2m-2 4h2m-2-2h2" />
+      </svg>
+      Pengalaman Manufaktur & Operasional
+    </h3>
+
+    <ol class="relative border-l border-gray-200">
+      {industrialExperience.map(item => (
+        <TimelineItem
+          date={item.date}
+          title={item.title}
+          company={item.company}
+          description={item.description}
+          certificateLink={item.certificateLink}
+        />
+      ))}
+    </ol>
+  </div>
+
+  <hr class="my-10 border-t-2 border-dashed border-gray-300" />
+
+  <div id="it">
+    <h3 class="text-3xl font-semibold text-green-700 mb-6 flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M9.75 17L9 20l-1 1h8l-1-1v-3m-6.447-2.883a1 1 0 00-1.065 1.065l1.414 1.414a1 1 0 001.065 0l3-3a1 1 0 10-1.414-1.414l-3 3zM12 11V3m0 0l3 3m-3-3l-3 3" />
+      </svg>
+      Proyek & Pengembangan IT
+    </h3>
+
+    <ol class="relative border-l border-gray-200">
+      {itExperience.map(item => (
+        <TimelineItem
+          date={item.date}
+          title={item.title}
+          company={item.company}
+          description={item.description}
+          link={item.link}
+          isTech={true}
+        />
+      ))}
+    </ol>
+  </div>
+</section>

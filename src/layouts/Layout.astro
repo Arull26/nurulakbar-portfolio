@@ -1,0 +1,67 @@
+---
+// src/layouts/Layout.astro
+import '../styles/global.css'; 
+import Header from '../components/Header.astro'; 
+import Footer from '../components/Footer.astro'; 
+
+const { title = 'Portofolio Nurul Akbar', description = 'Portofolio Resmi Nurul Akbar' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<!-- Pastikan tag <html> tidak memiliki class 'dark' secara default. JS yang akan menambahkannya. -->
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<!-- TAMBAHKAN CLASS DARK MODE PADA BODY -->
+<body class="bg-gray-50 text-gray-800 font-inter antialiased min-h-screen flex flex-col has-background dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <Header />
+
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <slot />
+    </main>
+
+    <Footer />
+
+</body>
+</html>
+
+<style is:global>
+    body {
+        font-family: 'Inter', sans-serif;
+    }
+
+    /* --- TAMBAHAN BACKGROUND TEKSTUR --- */
+    body.has-background {
+        /* Warna terang */
+        background-image: url('/watercolor-bg.jpg'); /* GANTI DENGAN PATH GAMBAR ANDA */
+        background-size: cover; 
+        background-attachment: fixed; 
+        background-position: center center; 
+        background-repeat: no-repeat; 
+        background-color: #f9fafb; 
+    }
+
+    /* TAMBAHAN: Aturan Dark Mode untuk background */
+    .dark body.has-background {
+        background-image: none; /* Hilangkan tekstur di dark mode agar lebih bersih */
+        background-color: #0f172a; /* Warna dark mode (dark:bg-slate-900) */
+    }
+
+    /* Penyesuaian untuk elemen konten (section) agar tetap menonjol */
+    section {
+        background-color: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(5px);
+        border-radius: 0.75rem; 
+
+        /* Dark Mode Styling untuk konten section */
+        .dark & {
+            background-color: rgba(30, 41, 59, 0.95); /* dark:bg-slate-800 semi-transparan */
+        }
+    }
+</style>

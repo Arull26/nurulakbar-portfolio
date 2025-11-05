@@ -1,0 +1,57 @@
+---
+// src/components/Hero.astro
+// Data diambil dari CV
+const name = "Nurul Akbar";
+const phone = "082124306742";
+const email = "nurakbarsk@gmail.com";
+const location = "Cibitung, Bekasi";
+const githubLink = "https://github.com/NurAkbarr";
+
+// Asumsi Anda memiliki file foto dengan nama 'profile-akbar.png' di folder 'public/'
+const imageUrl = "/profile-akbar.png";
+
+// Fungsi untuk membuat link WhatsApp yang benar
+const whatsappLink = `https://wa.me/${phone.replace(/[^0-9]/g, '')}`; 
+---
+<section id="hero" class="py-16 md:py-24 bg-white rounded-xl shadow-lg mb-12 px-4 md:px-10">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+        <div class="md:w-3/5 text-center md:text-left">
+            <p class="text-xl font-medium text-gray-600 mb-2">Halo, saya</p>
+            <h1 class="text-6xl md:text-7xl font-extrabold text-gray-900 leading-tight mb-4">
+                {name}
+            </h1>
+            <p class="text-2xl font-semibold text-indigo-600 mb-6">
+                Operator Produksi & Web Developer
+            </p>
+            
+            <div class="mt-8 space-y-3 text-lg">
+                
+                <a href={whatsappLink} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center md:justify-start text-gray-700 hover:text-indigo-600 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498A1 1 0 0121 15.72V19a2 2 0 01-2 2H5a2 2 0 01-2-2z" /></svg>
+                    <span>{phone}</span>
+                </a>
+                
+                <a href={`mailto:${email}`} class="flex items-center justify-center md:justify-start text-gray-700 hover:text-indigo-600 transition duration-300">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    <span>{email}</span>
+                </a>
+                
+                <div class="flex items-center justify-center md:justify-start text-gray-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                    <span>{location}</span>
+                </div>
+
+                <a href={githubLink} target="_blank" rel="noopener noreferrer" class="flex items-center justify-center md:justify-start text-gray-700 hover:text-indigo-600 transition duration-300 pt-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-500 mr-3" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.725-4.04-1.61-4.04-1.61-.546-1.387-1.332-1.756-1.332-1.756-1.09-.745.083-.73.083-.73 1.205.085 1.838 1.237 1.838 1.237 1.07 1.834 2.805 1.306 3.49.998.108-.775.419-1.306.762-1.605-2.665-.3-5.466-1.33-5.466-5.94 0-1.31.465-2.38 1.235-3.22-.125-.3-.536-1.523.117-3.175 0 0 1-.32 3.285 1.23.955-.265 1.96-.397 2.96-.397 1 0 2.005.132 2.96.397 2.28-1.55 3.285-1.23 3.285-1.23.653 1.652.242 2.875.117 3.175.77.84 1.235 1.91 1.235 3.22 0 4.62-2.8 5.63-5.475 5.935.42.36.81.109.81 1.09 0 1.23-.01 2.22-.015 2.51 0 .32.22.69.825.57C20.565 21.8 24 17.302 24 12c0-6.627-5.373-12-12-12z" clip-rule="evenodd" /></svg>
+                    <span>NurAkbarr (GitHub)</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="md:w-2/5 flex justify-center md:justify-end">
+            <div class="relative w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-8 border-indigo-200 shadow-2xl">
+                <img src={imageUrl} alt={name} class="object-cover w-full h-full" loading="eager"/>
+            </div>
+        </div>
+    </div>
+</section>
